@@ -25,5 +25,11 @@ INSERT INTO employee VALUES
 /* Show all data from employee */
 SELECT * FROM employee;
 
-/* Show data from an employee with a especific id */
-SELECT * FROM employee WHERE id=1;
+/* Show data from an employee with an especific id */
+SELECT * FROM employee WHERE id = 1;
+
+/* Delete an employee with an specific id */
+DELETE FROM employee WHERE id = 1;
+
+/* Update an employee with an specific id */
+UPDATE employee SET name = newName, salary = 10000 WHERE id = 1;

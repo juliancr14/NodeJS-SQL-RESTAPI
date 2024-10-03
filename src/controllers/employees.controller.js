@@ -30,14 +30,25 @@ export const postEmployee = async (req, res) => {
     })
 }
 
-export const putEmployee = (req, res) => {
+export const patchEmployee = async(req, res) => {
+    const { id } = req.params;
+    const { name, salary } = req.body;
 
+    const [result] = await pool.query("UPDATE employee SET name = IFNULL(?, name), salary = IFNULL(?, salary) WHERE id = ?", [name, salary, id]);
+    
+    if (result.affectedRows <= 0) return res.status(404).json({
+        message: "Employee not found"
+    });
+
+    const [rows] = await pool.query("SELECT * FROM employee WHERE id = ?", [id]);
+    res.json(rows[0]);
 };
 
 export const deleteEmployee = async (req, res) => {
-    const [rows] = await pool.query("DELETE FROM employee WHERE id = ?", [req.params.id]);
+    const [result] = await pool.query("DELETE FROM employee WHERE id = ?", [req.params.id]);
     
-    if (rows.affectedRows <= 0) return res.status(404).json({
+    //If not found id for delete a data return 404
+    if (result.affectedRows <= 0) return res.status(404).json({
         message: "Employer not found"
     });
 

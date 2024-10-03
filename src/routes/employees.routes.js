@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getEmployees, getEmployee, postEmployee, putEmployee, deleteEmployee} from "../controllers/employees.controller.js";
+import { getEmployees, getEmployee, postEmployee, patchEmployee, deleteEmployee} from "../controllers/employees.controller.js";
 
 const router = Router();
 
@@ -10,7 +10,7 @@ router.get("/employees/:id", getEmployee);
 
 router.post("/employees", postEmployee);
 
-router.put("/employees", putEmployee);
+router.patch("/employees/:id", patchEmployee);
 
 router.delete("/employees/:id", deleteEmployee);
 
