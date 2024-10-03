@@ -12,7 +12,7 @@ router.post("/employees", postEmployee);
 
 router.put("/employees", putEmployee);
 
-router.delete("/employees", deleteEmployee);
+router.delete("/employees/:id", deleteEmployee);
 
 //Export endpoints
 export default router;
