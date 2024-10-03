@@ -47,6 +47,7 @@ export const postEmployee = async (req, res) => {
     }
 }
 
+//Update an specific data from database
 export const patchEmployee = async(req, res) => {
     try {
         const { id } = req.params;
@@ -67,6 +68,7 @@ export const patchEmployee = async(req, res) => {
     }
 };
 
+//Delete an specific data from database
 export const deleteEmployee = async (req, res) => {
     try {
         const [result] = await pool.query("DELETE FROM employee WHERE id = ?", [req.params.id]);
