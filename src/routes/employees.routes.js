@@ -1,10 +1,12 @@
 import { Router } from "express";
-import { getEmployee, postEmployee, putEmployee, deleteEmployee} from "../controllers/employees.controller.js";
+import { getEmployees, getEmployee, postEmployee, putEmployee, deleteEmployee} from "../controllers/employees.controller.js";
 
 const router = Router();
 
 //Router endpoints
-router.get("/employees", getEmployee);
+router.get("/employees", getEmployees);
+
+router.get("/employees/:id", getEmployee);
 
 router.post("/employees", postEmployee);
 

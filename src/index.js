@@ -9,7 +9,7 @@ app.use(express.json());
 
 //Using endpoints routes
 app.use(indexRoutes);
-app.use(employeesRoutes);
+app.use("/api", employeesRoutes);
 
 //Server config
 app.listen(3000);

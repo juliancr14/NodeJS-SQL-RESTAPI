@@ -24,3 +24,6 @@ INSERT INTO employee VALUES
 
 /* Show all data from employee */
 SELECT * FROM employee;
+
+/* Show data from an employee with a especific id */
+SELECT * FROM employee WHERE id=1;
