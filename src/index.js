@@ -4,6 +4,9 @@ import indexRoutes from "./routes/index.routes.js";
 
 const app = express();
 
+//Middleware
+app.use(express.json());
+
 //Using endpoints routes
 app.use(indexRoutes);
 app.use(employeesRoutes);
